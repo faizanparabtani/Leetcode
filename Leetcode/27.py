@@ -1,7 +1,4 @@
 def removeElement(nums, val):
-    k = 0
-    first = 0
-    second = 1
     # if array is empty return
     index = 0
     for i in range(len(nums)):
