@@ -4,7 +4,6 @@ def isPalindrome(x):
     right = len(x_str) - 1
 
     while left < right:
-        print(x_str[left], x_str[right], ord(x_str[left]), ord('-'))
         if x_str[left] == "-":
             return "false"
         elif x_str[left] != x_str[right]:

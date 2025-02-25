@@ -1,17 +1,18 @@
 def wordPattern(pattern, s):
-    s_list = s.split(' ')
-    if len(pattern) != len(s_list):
-        return False
+    words, w_to_p = s.split(' '), dict()
 
-    for index, value in enumerate(pattern):
-        try:
-            index_exists = s_list[index]
-        except:
+    if len(pattern) != len(words): return False
+    if len(set(pattern)) != len(set(words)): return False # for the case w = ['dog', 'cat'] and p = 'aa'
+
+    for i in range(len(words)):
+        if words[i] not in w_to_p: 
+            w_to_p[words[i]] = pattern[i]
+        elif w_to_p[words[i]] != pattern[i]: 
             return False
-    
+
     return True
 
-pattern = "abb"
-s = "dog cat cat dog"
+pattern = "abba"
+s = "dog dog dog dog"
 
 print(wordPattern(pattern, s))
