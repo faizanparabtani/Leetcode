@@ -68,18 +68,18 @@ This approach is efficient compared to sorting as it requires only a single pass
 """
 def majorityElement(nums):
     count = 0
-        candidate = 0
+    candidate = 0
+    
+    for num in nums:
+        if count == 0:
+            candidate = num
         
-        for num in nums:
-            if count == 0:
-                candidate = num
-            
-            if num == candidate:
-                count += 1
-            else:
-                count -= 1
-        
-        return candidate
+        if num == candidate:
+            count += 1
+        else:
+            count -= 1
+    
+    return candidate
 
 
 
