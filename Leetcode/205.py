@@ -1,14 +1,19 @@
 from collections import Counter
 
 def isIsomorphic(self, s, t):
-    s_counter = Counter(s)
-    t_counter = Counter(t)
-    
-    if len(s_counter) != len(t_counter):
-        return "false"
+    char_index_s = {}
+    char_index_t = {}
 
-    index = 0
-    while len(t_counter) > 0:
-        letter_count_s = s_counter[index]
+    for i in range(len(s)):
+        if s[i] not in char_index_s:
+            char_index_s[s[i]] = i
+
+        if t[i] not in char_index_t:
+            char_index_t[t[i]] = i
+        
+        if char_index_s[s[i]] != char_index_t[t[i]]:
+            return False
+
+    return True
         
         
